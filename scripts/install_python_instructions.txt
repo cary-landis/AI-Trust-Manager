@@ -1,0 +1,27 @@
+Python is not on PATH and winget is not installed.
+
+Install Python 3.12 using one of these options:
+
+Option A (Microsoft Store):
+1) Open the Microsoft Store app
+2) Search for "Python 3.12"
+3) Install "Python 3.12" by the Python Software Foundation
+4) Close and reopen PowerShell
+
+Option B (python.org installer):
+1) Download https://www.python.org/ftp/python/3.12.5/python-3.12.5-amd64.exe
+2) Run the installer
+3) Check: "Add python.exe to PATH"
+4) Click "Install Now"
+5) After install, open a NEW PowerShell
+
+Verify:
+- Run: python --version
+- If still not recognized, sign out/in or reboot once.
+
+Then run in project root:
+  python -m venv .venv
+  .\.venv\Scripts\Activate.ps1
+  python -m pip install --upgrade pip setuptools wheel
+  pip install -r requirements.txt -v --default-timeout 120
+  python -m uvicorn --app-dir src ai_trust_manager.api.main:app --reload --port 5080

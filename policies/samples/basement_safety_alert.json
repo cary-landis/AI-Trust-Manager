@@ -1,0 +1,12 @@
+{
+  "policy_name": "Basement Safety Alert",
+  "purpose": "Alert caregiver of extended basement stay.",
+  "risk_prompt_template": "What is the risk level (1-100, 100 highest) based on: AGE:[AGE], HISTORICAL:[HISTORICAL_MINUTES_IN_LOCATION], CURRENT:[CURRENT_MINUTES_IN_LOCATION], LOCATION:[LOCATION]",
+  "trigger_condition": "RISK_SCORE > 90",
+  "output_directives": {
+    "action": "notify_caregiver",
+    "log_event": true
+  },
+  "security_level": "CRITICAL",
+  "governance_model": "Room Risks"
+}
