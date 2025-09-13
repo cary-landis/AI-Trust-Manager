@@ -34,12 +34,12 @@ pytest -q
 ```
 
 One-command helpers (Windows PowerShell)
-- Run the API: `scripts\run.ps1`
-- Run tests: `scripts\test.ps1`
+- Run the API: `scripts\run_app.ps1`
+- Run tests: `scripts\run_tests.ps1`
 
 Release checklist
 - All tests pass locally: `pytest -q`
-- API runs locally: `scripts\\run.ps1` and hit `http://127.0.0.1:5080/docs`
+- API runs locally: `scripts\\run_app.ps1` and hit `http://127.0.0.1:5080/docs`
 - CI green on main (GitHub Actions)
 
 Tag and push v1.0.0

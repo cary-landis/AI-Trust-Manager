@@ -1,0 +1,16 @@
+[
+	{
+		"name": "basement-approved",
+		"policy": "Basement Safety Alert",
+		"ctx": {"AGE": 90, "HISTORICAL_MINUTES_IN_LOCATION": 20, "CURRENT_MINUTES_IN_LOCATION": 40, "LOCATION": "basement"},
+		"risk_score": 95.0,
+		"expected": { "policy_decision": "approved", "directive_present": true, "audit_delta": 1 }
+	},
+	{
+		"name": "basement-denied",
+		"policy": "Basement Safety Alert",
+		"ctx": {"AGE": 25, "HISTORICAL_MINUTES_IN_LOCATION": 5, "CURRENT_MINUTES_IN_LOCATION": 1, "LOCATION": "basement"},
+		"risk_score": 10.0,
+		"expected": { "policy_decision": "denied", "directive_present": false, "audit_delta": 1 }
+	}
+]

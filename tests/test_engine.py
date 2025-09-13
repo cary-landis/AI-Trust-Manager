@@ -55,3 +55,7 @@ def test_denied_when_fixed_risk_below_threshold(monkeypatch):
     assert res["policy_decision"] == "denied"
     assert res["directive"] is None
     assert after == before + 1
+"""
+Deprecated: replaced by table-driven tests.
+Use tests/run_tests.py with tests/tests.json instead.
+"""
