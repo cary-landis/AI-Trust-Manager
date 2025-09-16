@@ -1,3 +1,63 @@
+
+# AI Trust Manager
+
+## TL;DR
+AI Trust Manager is an open-source Python framework for governing semi-autonomous AI agent-driven systems, especially in digital health. It helps developers build, test, and audit trust policies for AI agents using simulated or real AI risk scoring.
+
+---
+
+## What is AI Trust Manager?
+Our innovation is the AI Trust Policy Manager for Semi-autonomous Digital Health Agents (AI Trust Manager), a software system that governs semi-autonomous AI agents. It solves the problem of under-governed AI agents performing risky actions in healthcare environments.
+
+AI Trust Manager provides a flexible engine for evaluating context against policies, simulating AI risk scoring, and auditing decisions. It is designed for developers and researchers who want to experiment with AI policy governance, risk assessment, and compliance for agent-driven systems.
+
+## Key Features
+- Table-driven policy tests
+- Modular policy engine (`AdaptivePolicyEngine`)
+- Simulated AI risk scoring (easy to swap for real AI)
+- Audit logging to SQLite (`audit.db`)
+- Easy-to-extend policy schema and repository
+- Open source and ready for contributions
+
+## Quick Start
+1. **Clone the repo:**
+   ```
+   git clone https://github.com/cary-landis/AI-Trust-Manager.git
+   cd AI-Trust-Manager
+   ```
+2. **Set up Python environment:**
+   - Use Python 3.13+ (virtual environment recommended)
+   - Install dependencies:
+     ```
+     pip install -r requirements.txt
+     ```
+3. **Run tests:**
+   ```
+   python tests/run_tests.py
+   ```
+
+## How It Works
+- **Policy Evaluation:**
+  - Policies are defined in JSON files under `policies/samples/`.
+  - The engine evaluates context against policy rules using a risk score.
+  - AI risk scoring is simulated via `engine_AI.py` (replace with real AI when ready).
+- **Testing:**
+  - Table-driven tests are defined in `tests/tests.json`.
+  - The test runner (`run_tests.py`) loads cases, evaluates policies, and checks audit logs.
+- **Audit Logging:**
+  - All decisions are logged to `app_data/audit.db` for traceability.
+
+## Technical Details
+- **Engine:** `src/ai_trust_manager/core/engine.py` implements the main policy evaluation logic.
+- **AI Simulation:** `src/ai_trust_manager/core/engine_AI.py` simulates AI risk scoring. Pass `risk_score` in context for testing.
+- **Audit:** `src/ai_trust_manager/core/audit.py` handles audit log entries.
+- **Policy Schema:** `src/ai_trust_manager/core/policy_schema.py` defines policy structure.
+
+## Contributing
+Pull requests and issues are welcome! See the LICENSE file for terms. Please document your changes and add tests where possible.
+
+## License
+This project is licensed under the terms of the LICENSE file in the repository.
 # AI Trust Manager (MVP)
 
 Python FastAPI MVP for evaluating AI governance policies with probabilistic risk via a mock Governance Model. No GUI. Simple, mainstream stack.
