@@ -49,26 +49,16 @@ def temp_attr(obj, name, value):
 
 
 def run_case(case: dict) -> tuple[bool, str]:
-    risk = case.get("risk_score")
-    patch = (
-        temp_attr(
-            governance_mock.GovernanceModelMock,
-            "get_risk_score",
-            staticmethod(lambda prompt, _r=risk: _r),
-        )
-        if risk is not None
-        else nullcontext()
-    )
+    # Directly call engine.evaluate; AI call should be handled in engine or its module
 
     exp = case.get("expected", {})
     check_audit = "audit_delta" in exp
     before = audit_count() if check_audit else None
 
     try:
-        with patch:
-            repo = PolicyRepository(folder=SAMPLES)
-            engine = AdaptivePolicyEngine(repo)
-            res = engine.evaluate(case["policy"], case.get("ctx", {}))
+        repo = PolicyRepository(folder=SAMPLES)
+        engine = AdaptivePolicyEngine(repo)
+        res = engine.evaluate(case["policy"], case.get("ctx", {}))
     except Exception as e:
         return False, f"name={case.get('name','?')} policy={case.get('policy','?')} error={e}"
 

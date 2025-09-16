@@ -1,4 +1,5 @@
 from __future__ import annotations
+from .engine_AI import get_risk_score
 import json
 import re
 from pathlib import Path
@@ -59,7 +60,7 @@ class AdaptivePolicyEngine:
 
         # Build prompt and compute risk score
         prompt = GovernanceModelMock.build_prompt(policy, context_data)
-        risk_score = GovernanceModelMock.get_risk_score(prompt)
+        risk_score = get_risk_score(prompt, context_data)
 
         # Evaluate condition
         triggered = eval_condition(policy.trigger_condition, risk_score)
